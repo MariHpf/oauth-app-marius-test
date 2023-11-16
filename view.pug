@@ -1,0 +1,15 @@
+doctype html 
+html(lang="en")
+    head
+        title Hubspot App Test Marius Hopf
+    body
+        h1 Hubspot App 
+        if token 
+            p Sie sind authentisiert: #{token}
+            p Kontakte im Account: 
+            ul 
+                each contact in contacts
+                    li #{contact.properties.firstname} #{contact.properties.lastname} Mail: #{contact.properties.email}
+        else 
+            p Nicht authenisiert 
+            p Bitte App installieren #[a(href=`${authUrl}`) hier]
